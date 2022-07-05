@@ -3,11 +3,17 @@ This is the official code for the TWMM. TWMM (**T**emplate matching with **W**ei
 We have released part of the dataset and source code. The full datasets and source code will be released soon.
 
 # Run
-These implementation of methods have been released. One can run these methodsas follows:
+These implementation of methods (SIFT, SURF, ORB, RIFT, RCB, TFeat, HardNet) have been released. One can run these methodsas follows:
 
   `git clone https://github.com/mlxljz/TWMM.git`
   
   `python results_SIFT_SURF_RIFT_SCB_HOPC.py`
+  
+  The implementation for RIFT and SCB refers to http://www.ivlab.org/publications.html and https://ljy-rs.github.io/web/
+  
+# Result
+The experimental results fordifferent methods are located in this directory：test_img/out.
+
   
   ## Contact
 
