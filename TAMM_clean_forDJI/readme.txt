@@ -1,0 +1,1 @@
+运行方式：在windows系统下，打开运行tk_TAMM_test.py，显示界面，
