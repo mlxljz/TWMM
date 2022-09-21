@@ -7,8 +7,8 @@ import numpy as np
 from common.image_process import get_cores_point
 from common.thermal_visible import ThermalVisble
 from feature_based.SIFT_SURF_ORB_RIFT_SCB_HOPC import sift_registration,surf_registration,orb_registration,rift_registration,scb_registration,hardnet_registration,tfeat_registration
-# from template_based.CFOG import CFOG_registration
-# from TAMM_clean.TAMM import TAMM_registration
+from template_based.CFOG import CFOG_registration
+from TAMM_clean.TAMM import TAMM_registration
 
 def vis_correspoint(homo,point_dict,threhold,imgpath):
     #遍历每个点，计算其误差
@@ -54,8 +54,8 @@ def one_img_process(thermal_tiff_path,visible_rgb_path,thermal_rgb_path,method,s
                  'hardnet':hardnet_registration,
                  'tfeat':tfeat_registration,
                  # 'hopc': hopc_registration,
-                 # 'cfog':CFOG_registration,
-                 # 'tamm':TAMM_registration
+                 'cfog':CFOG_registration,
+                 'tamm':TAMM_registration
                  }
     #在使用该方法得到homography和对应点
     if method in  ['sift','surf','orb','scb','rift','hopc']:
@@ -98,12 +98,12 @@ def one_img_process(thermal_tiff_path,visible_rgb_path,thermal_rgb_path,method,s
 def cfg_forcfog_tamm(method):
     patch_size = 40 if method=='tamm' else 100
 
-    return {'bin_size':9,'patch_size':patch_size,'search_radius':45,'num_points':625,'thresh':2,'level_max':4,'fea':'CFOG'}
+    return {'bin_size':9,'patch_size':patch_size,'search_radius':50,'num_points':625,'thresh':2,'level_max':4,'fea':'CFOG'}
 
 
 if __name__=='__main__':
     #输入图像(原始图像)，输入方法，结果保存地址，得到结果(homo和可视化结果保存，缩放裁剪后的图像，配准后的图像)
-    method_list=['scb']#['tfeat','hardnet','orb','sift','surf','rift','scb']
+    method_list=['tamm']#['tfeat','hardnet','orb','sift','surf','rift','scb']
 
     img_name_list = ['12-09-57-454']#'21-11-28-547'#'21-11-32-580',21-11-28-547,21-10-58-550,21-11-14-582,21-11-16-552,21-11-18-549,21-11-20-556,
     for img_name in img_name_list:

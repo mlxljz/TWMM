@@ -6,10 +6,10 @@ import random
 
 from .image_process import center_crop,img_read,homo_save,get_cores_point,show_map_and_img,mosaic_img,stitch_img
 from .tools import exist_or_mkdir,list_to_csv
-# from template_based.CFOG import CFOG_descriptor,cfog_matching_points
-# from TAMM_clean.TAMM import TAMM
+from template_based.CFOG import CFOG_descriptor,cfog_matching_points
+from TAMM_clean.TAMM import TAMM
 # from deep_learning.main_RANSAC import resnet_feature
-from feature_based.sift_flow_torch import SIFT_feature
+# from feature_based.sift_flow_torch import SIFT_feature
 
 def draw_match_point(thermal_point_list,sen_point_list,outliers_ref,outliers_sen,thermal_color,visible_img):
     #正确的点用白色
